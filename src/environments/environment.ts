@@ -5,7 +5,8 @@
 export const environment = {
   production: false,
   navRoutes:{
-    components:'components'
+    components:'components',
+    notFound:'not-found'
   }
 };
 

@@ -1,3 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  navRoutes:{
+    components:'components',
+    notFound:'not-found'
+  }
 };

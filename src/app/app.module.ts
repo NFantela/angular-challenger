@@ -4,6 +4,7 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 import { environment } from 'src/environments/environment';
+import { NotFoundComponent } from './not-found.component';
 
 const routes: Routes = [
   {
@@ -18,15 +19,21 @@ const routes: Routes = [
   //   loadChildren: () => import('./features/multi-settings/multi-settings.module').then(m => m.MultiSettingsModule) 
   // },
   // {
-  //   path: '**',
-  //   redirectTo: environment.navRoutes.home
-  // }
+    {
+      path: '**',
+      redirectTo: environment.navRoutes.notFound
+    },
+    {
+      path:environment.navRoutes.notFound,
+      component:NotFoundComponent
+    }
 ];
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
