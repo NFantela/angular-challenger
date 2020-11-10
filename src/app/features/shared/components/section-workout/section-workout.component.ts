@@ -1,9 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'section-workout',
     styleUrls: ['section-workout.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <div>
             Hello this is section workout component i need router to fetch corresponding data from file

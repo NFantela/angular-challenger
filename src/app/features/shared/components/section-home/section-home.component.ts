@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
 import { ActivatedRoute, Data } from '@angular/router';
 import { Observable } from 'rxjs';
 import { SectionHomeData } from '../../models/section.home.data';
@@ -6,6 +6,7 @@ import { SectionHomeData } from '../../models/section.home.data';
 @Component({
     selector: 'section-home',
     styleUrls: ['section-home.component.scss'],
+    changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <article *ngIf="routeData$ | async as sectionData">
             <header>

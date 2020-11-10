@@ -4,16 +4,21 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
 import { environment } from 'src/environments/environment';
+
+// components
 import { NotFoundComponent } from './not-found.component';
+import { HomeComponent } from './home/home.component';
 
 // material
 import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatButtonModule} from '@angular/material/button';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: environment.navRoutes.components,
+    component: HomeComponent,
     pathMatch: 'full'
   },
   { path: environment.navRoutes.components, 
@@ -37,12 +42,14 @@ const routes: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatButtonModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],

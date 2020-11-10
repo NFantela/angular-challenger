@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
     selector: 'not-found',
+    changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
         <div>
             No results sorry
