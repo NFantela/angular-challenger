@@ -1,9 +1,19 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {  RouterModule, Route } from '@angular/router';
 import { SectionHomeComponent } from '../../shared/components/section-home/section-home.component';
 import { SectionHomeModule } from '../../shared/components/section-home/section-home.module';
+import { SectionHomeData } from '../../shared/models/section.home.data';
 
-const routes: Routes = [{ path: '', component: SectionHomeComponent }];
+const routes: Array<Route & { data : SectionHomeData}>= [
+    { 
+    path: '', 
+    component: SectionHomeComponent,
+    data:  {
+        sectionTitle: 'Components & Directives Challenges',
+        sectionDescription: 'Here we will do some challenges regarding Angular s Components and Directives...'
+    }
+  }
+];
 
 @NgModule({
     imports: [SectionHomeModule, RouterModule.forChild(routes)],
