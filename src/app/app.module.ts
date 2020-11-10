@@ -6,6 +6,10 @@ import { Routes, RouterModule } from '@angular/router';
 import { environment } from 'src/environments/environment';
 import { NotFoundComponent } from './not-found.component';
 
+// material
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 const routes: Routes = [
   {
     path: '',
@@ -37,6 +41,8 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
     RouterModule.forRoot(routes)
   ],
   providers: [],
