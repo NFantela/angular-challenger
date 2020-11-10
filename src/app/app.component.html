@@ -1,6 +1,23 @@
 <mat-drawer-container class="body-wrapper" [hasBackdrop]="false">
   <mat-drawer #drawer mode="push">
-    Sidebar navigation here
+
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let chapter of allChapters$ | async">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{ chapter.chapterName }}
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+
+        <mat-list role="list">
+          <mat-list-item *ngFor="let topic of chapter.challenges" role="listitem">
+            {{ topic.challengeTitle }}
+          </mat-list-item>
+        </mat-list>
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
   </mat-drawer>
   <mat-drawer-content>
 

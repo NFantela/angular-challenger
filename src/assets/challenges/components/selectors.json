@@ -1,0 +1,18 @@
+{
+    "challengeTitle": "Component and directive selectors",
+    "challengeDescription" : "A css like selectors used in components and directives present us with many possible options...",
+    "challengesCollection" : [
+        {
+            "challengeTitle":"Some first challenge",
+            "challengeDescription": "challenge 1 description",
+            "stackblitzLink": "https://stackblitz.com/edit/ang-recursive-component",
+            "gistLink": "https://gist.github.com/NFantela/3956cb917ec45e935d186751952fd389#file-array-recursive-component-ts"
+        },
+        {
+            "challengeTitle":"Some second challenge",
+            "challengeDescription": "challenge 2 description",
+            "stackblitzLink": "https://stackblitz.com/edit/ang-recursive-component",
+            "gistLink": "https://gist.github.com/NFantela/3956cb917ec45e935d186751952fd389#file-array-recursive-component-ts"
+        }
+    ]
+}
