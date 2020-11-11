@@ -1,0 +1,14 @@
+@import '~@angular/material/theming';
+
+@mixin set-default-styles($theme){
+    $primary: map-get($theme, primary);
+    a{
+        font-size: .85rem;
+        color:mat-color($primary);
+        text-decoration: none;
+        &.link-active {
+            text-decoration: underline;
+            opacity: .7;
+        }
+    }
+}

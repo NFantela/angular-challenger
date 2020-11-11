@@ -5,6 +5,8 @@
 // Plus imports for other components in your app.
 @import './styles/reset';
 @import './styles/hamburger';
+@import './styles/colors/colors';
+@import './styles/default-styles';
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -14,8 +16,8 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$angular-challenger-primary: mat-palette($mat-indigo);
-$angular-challenger-accent: mat-palette($mat-pink, A200, A100, A400);
+$angular-challenger-primary: mat-palette($challengerPrimary);
+$angular-challenger-accent: mat-palette($challengerSecondary, A200, A100, A400);
 
 // The warn palette is optional (defaults to red).
 $angular-challenger-warn: mat-palette($mat-red);
@@ -37,7 +39,8 @@ $angular-challenger-theme: mat-dark-theme((
 // Alternatively, you can import and @include the theme mixins for each component
 // that you are using.
 @include angular-material-theme($angular-challenger-theme);
-
+// load default styles
+@include set-default-styles($angular-challenger-theme);
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }

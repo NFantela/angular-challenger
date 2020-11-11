@@ -11,7 +11,7 @@
            },
            {
             "challengeTitle": "Test 2",
-            "challengeLocation" : "selectors"
+            "challengeLocation" : "again"
             }
         ]
     },
@@ -19,12 +19,30 @@
         "chapterName": "Dependency Injection",
         "challengeDescription" : "A css like selectors used in components and directives present us with many possible options...",
         "chapterUrl" : "dependency-injection",
-        "challenges": [ ]
+        "challenges": [ 
+           {
+               "challengeTitle": "Component and directive selectors",
+               "challengeLocation" : "selectors"
+           },
+           {
+            "challengeTitle": "Test 2",
+            "challengeLocation" : "selectors"
+            }
+        ]
     },
     {
         "chapterName": "Router",
         "challengeDescription" : "A css like selectors used in components and directives present us with many possible options...",
         "chapterUrl" : "router",
-        "challenges": [ ]
+        "challenges": [ 
+           {
+               "challengeTitle": "Component and directive selectors",
+               "challengeLocation" : "selectors"
+           },
+           {
+            "challengeTitle": "Test 2",
+            "challengeLocation" : "selectors"
+            }
+        ]
     }
 ]

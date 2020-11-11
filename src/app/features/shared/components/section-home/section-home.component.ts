@@ -8,17 +8,26 @@ import { SectionHomeData } from '../../models/section.home.data';
     styleUrls: ['section-home.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
+    <mat-card class="example-card">
         <article *ngIf="routeData$ | async as sectionData">
             <header>
+            <mat-card-header>
                 <h1>{{sectionData.sectionTitle}}</h1>
+            </mat-card-header>
             </header>
 
-            <p>{{sectionData.sectionDescription}}</p>
+            <mat-card-content>
+                 <p>{{sectionData.sectionDescription}}</p>
+            </mat-card-content>
 
-            <footer>
+            <mat-card-actions>
+                <footer>
                 <a mat-raised-button color="primary"  routerLink="/workout/1">Start with the challenges</a>
-            </footer>
+                </footer>
+            </mat-card-actions>
+
         </article>
+    </mat-card>
     `
 })
 export class SectionHomeComponent implements OnInit {

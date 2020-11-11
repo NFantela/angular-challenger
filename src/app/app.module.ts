@@ -18,6 +18,7 @@ import {MatExpansionModule} from '@angular/material/expansion';
 import {MatListModule} from '@angular/material/list';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MapDataPipe } from './pipes/mapper/mapper.pipe';
 
 const routes: Routes = [
   {
@@ -47,7 +48,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    MapDataPipe
   ],
   imports: [
     BrowserModule,

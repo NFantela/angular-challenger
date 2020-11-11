@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(@Inject(ChallengesService) private readonly _challengesService :ChallengesService){}
 
-  allChapters$:Observable<Chapter | Object> = of([]);
+  allChapters$:Observable<Array<Chapter>> = of([]);
 
   ngOnInit(){
     this.allChapters$ = this._challengesService.getAllChapters();

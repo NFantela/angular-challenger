@@ -10,8 +10,19 @@
         </mat-expansion-panel-header>
 
         <mat-list role="list">
+
+          <mat-list-item role="listitem">
+            <a 
+              [routerLink]="chapter?.chapterUrl" 
+              routerLinkActive="link-active" 
+              [routerLinkActiveOptions]="{exact:true}"> Introduction</a>
+          </mat-list-item>
+
           <mat-list-item *ngFor="let topic of chapter.challenges" role="listitem">
-            {{ topic.challengeTitle }}
+            <a 
+              [routerLink]="chapter?.chapterUrl + '/workout/' + topic.challengeLocation" 
+              routerLinkActive="link-active" 
+              [routerLinkActiveOptions]="{exact:true}">{{ topic.challengeTitle }}</a>
           </mat-list-item>
         </mat-list>
 
