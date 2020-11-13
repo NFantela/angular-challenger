@@ -1,9 +1,17 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Route } from '@angular/router';
 import { SectionWorkoutComponent } from '../../shared/components/section-workout/section-workout.component';
 import { SectionWorkoutModule } from '../../shared/components/section-workout/section-workout.module';
+import { SectionWorkoutData } from '../../shared/models/section.home.data';
 
-const routes: Routes = [{ path: '', component: SectionWorkoutComponent }];
+const routes: Array<Route & { data : SectionWorkoutData}> = [{ 
+    path: '', 
+    component: SectionWorkoutComponent,
+    data:  {
+        // must correspond to assets/challenges/{folderName}
+        sectionName:'components'
+    }
+}];
 
 @NgModule({
     imports: [SectionWorkoutModule, RouterModule.forChild(routes)],
