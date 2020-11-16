@@ -1,23 +1,32 @@
-<div>
-    Hello this is section workout component i need router to fetch corresponding data from file
-    <ng-container *ngIf="currentWorkout$ | async as workout">
-       <h1>{{ workout.workoutTitle}}</h1> 
 
-       <ng-container *ngFor="let challenge of workout.challenges; let i = index;">
-           <h3>Challenge {{ i + 1}} : {{ challenge.challengeTitle }}</h3>
-            <button 
-                mat-raised-button 
-                color="accent" 
-                [disabled]="isShown(i, openedChallenges)"
-                (click)="openThisChallenge(i)">
-                Load Challenge
-            </button>
 
-            <ng-template *ngIf="isShown(i, openedChallenges) && componentChallengeType"
-                [ngComponentOutlet]="componentChallengeType"
-                [ngComponentOutletInjector]="challenge | compContext"
-            ></ng-template>
+    <mat-card class="section-workout">
+        <article *ngIf="currentWorkout$ | async as workout">
+            <mat-card-header>
+                <h1>{{ workout.workoutTitle}}</h1> 
+            </mat-card-header>
+            <mat-card-content>
+                <p>{{ workout.workoutDescription}}</p>
 
-       </ng-container>
-    </ng-container>
-</div>
+                <div *ngFor="let challenge of workout.challenges; let i = index;" class="section-workout__challenge">
+                    <h3>Challenge {{ i + 1}} : {{ challenge.challengeTitle }}</h3>
+                     <button 
+                         mat-raised-button 
+                         color="accent" 
+                         [disabled]="isShown(i, openedChallenges)"
+                         (click)="openThisChallenge(i)">
+                         Load Solution
+                     </button>
+         
+                     <ng-template *ngIf="isShown(i, openedChallenges) && componentChallengeType"
+                         [ngComponentOutlet]="componentChallengeType"
+                         [ngComponentOutletInjector]="challenge | compContext"
+                     ></ng-template>
+                  
+                </div>
+
+            </mat-card-content>
+        </article>
+
+    </mat-card>
+

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit, Type } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, OnInit, Type } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Observable, of } from 'rxjs';
 import {  switchMap } from 'rxjs/operators';
@@ -17,7 +17,8 @@ export class SectionWorkoutComponent implements OnInit {
     
     constructor(
         @Inject(ActivatedRoute) private readonly _activatedRoute:ActivatedRoute,
-        @Inject(ChallengesService) private readonly _challengesService:ChallengesService){}
+        @Inject(ChallengesService) private readonly _challengesService:ChallengesService,
+        @Inject(ChangeDetectorRef) private readonly _cdRef: ChangeDetectorRef){}
     
     currentWorkout$:Observable<Workout | null> = of(null);
 
@@ -52,6 +53,7 @@ export class SectionWorkoutComponent implements OnInit {
     async loadComponent(){
         const { SingleChallengeComponent } = await import('../challenge-component/challenge.component');
         this.componentChallengeType = SingleChallengeComponent;
+        this._cdRef.markForCheck();
     }
 
 

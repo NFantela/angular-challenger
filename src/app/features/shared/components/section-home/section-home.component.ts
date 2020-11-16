@@ -8,7 +8,7 @@ import { SectionHomeData } from '../../models/section.home.data';
     styleUrls: ['section-home.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     template: `
-    <mat-card class="example-card">
+    <mat-card class="section-home">
         <article *ngIf="routeData$ | async as sectionData">
             <header>
             <mat-card-header>

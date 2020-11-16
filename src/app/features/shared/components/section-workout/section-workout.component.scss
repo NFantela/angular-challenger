@@ -1,0 +1,8 @@
+@import '../../../../../styles/colors/colors';
+
+.section-workout{
+    &__challenge{
+        padding:1em 0;
+        border-bottom: 1px solid $darykGreyBorder; // make it gray
+    }   
+}

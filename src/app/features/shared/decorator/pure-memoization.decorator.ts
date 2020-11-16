@@ -42,7 +42,6 @@ export function PureMemoization<T>(
   }
   // if we are decorating a function
   const original = value;
-  console.log("decorating a fn herre")
   return {
     enumerable,
     get(): T {
