@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Chapter } from '../models/chapter';
-import { Challenge } from '../models/challenge';
+import { Workout } from '../models/challenge';
 
 
 @Injectable({providedIn:'root'})
@@ -22,9 +22,9 @@ export class ChallengesService {
     }
 
     /** Get section and file name and return challenge obj */
-    getSingleChallenge(sectionName:string, fileName:string):Observable<Challenge | null>{
+    getSingleWorkout(sectionName:string, fileName:string):Observable<Workout | null>{
         if(fileName){
-            return this._http.get<Challenge>(`${this.chaptersPath}/${sectionName}/${fileName}.json`).pipe(
+            return this._http.get<Workout>(`${this.chaptersPath}/${sectionName}/${fileName}.json`).pipe(
                 catchError((error: string) => of(null))
             );  
         }

@@ -1,21 +1,17 @@
-import { ChangeDetectionStrategy, Component, Inject, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Inject, OnInit, Type } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { combineLatest, Observable, of } from 'rxjs';
-import { map, switchMap } from 'rxjs/operators';
-import { Challenge } from '../../models/challenge';
+import {  switchMap } from 'rxjs/operators';
+import {  Workout } from '../../models/challenge';
 import { SectionWorkoutData } from '../../models/section.home.data';
 import { ChallengesService } from '../../services/challenges-http.service';
+import { PureMemoization } from '../../decorator/pure-memoization.decorator';
 
 @Component({
     selector: 'section-workout',
     styleUrls: ['section-workout.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    template: `
-        <div>
-            Hello this is section workout component i need router to fetch corresponding data from file
-           <pre>{{ currentChallenge$ | async | json }}</pre> 
-        </div>
-    `
+    templateUrl: 'section-workout.component.html',
 })
 export class SectionWorkoutComponent implements OnInit {
     
@@ -23,16 +19,40 @@ export class SectionWorkoutComponent implements OnInit {
         @Inject(ActivatedRoute) private readonly _activatedRoute:ActivatedRoute,
         @Inject(ChallengesService) private readonly _challengesService:ChallengesService){}
     
-    currentChallenge$:Observable<Challenge | null> = of(null);
+    currentWorkout$:Observable<Workout | null> = of(null);
+
+    public componentChallengeType:Type<any> | undefined;
+
+    public openedChallenges:number[] = [];
 
     ngOnInit(){
         const routeData$ = this._activatedRoute.data as Observable<SectionWorkoutData>;
         const routeParams$ = this._activatedRoute.params;
 
-        this.currentChallenge$ = combineLatest([routeData$, routeParams$]).pipe(
+        this.currentWorkout$ = combineLatest([routeData$, routeParams$]).pipe(
             switchMap(([{sectionName}, params]) => {
-               return this._challengesService.getSingleChallenge(sectionName, params.workoutId)
+               return this._challengesService.getSingleWorkout(sectionName, params.workoutId)
             })
         )
     }
+
+    openThisChallenge(i:number){
+        if(!this.componentChallengeType){
+            this.loadComponent();
+        }
+        this.openedChallenges = [...new Set([...this.openedChallenges, i])];
+    }
+
+    @PureMemoization
+    public isShown(index:number, arrToLook:number[] =  []):boolean{
+       return arrToLook.includes(index);
+    }
+    
+    /** Lazy load desired component */
+    async loadComponent(){
+        const { SingleChallengeComponent } = await import('../challenge-component/challenge.component');
+        this.componentChallengeType = SingleChallengeComponent;
+    }
+
+
 }

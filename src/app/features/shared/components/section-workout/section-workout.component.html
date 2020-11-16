@@ -1,0 +1,23 @@
+<div>
+    Hello this is section workout component i need router to fetch corresponding data from file
+    <ng-container *ngIf="currentWorkout$ | async as workout">
+       <h1>{{ workout.workoutTitle}}</h1> 
+
+       <ng-container *ngFor="let challenge of workout.challenges; let i = index;">
+           <h3>Challenge {{ i + 1}} : {{ challenge.challengeTitle }}</h3>
+            <button 
+                mat-raised-button 
+                color="accent" 
+                [disabled]="isShown(i, openedChallenges)"
+                (click)="openThisChallenge(i)">
+                Load Challenge
+            </button>
+
+            <ng-template *ngIf="isShown(i, openedChallenges) && componentChallengeType"
+                [ngComponentOutlet]="componentChallengeType"
+                [ngComponentOutletInjector]="challenge | compContext"
+            ></ng-template>
+
+       </ng-container>
+    </ng-container>
+</div>

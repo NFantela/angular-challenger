@@ -1,7 +1,7 @@
 {
-    "challengeTitle": "Component and directive selectors",
-    "challengeDescription" : "A css like selectors used in components and directives present us with many possible options...",
-    "challengesCollection" : [
+    "workoutTitle": "Component and directive selectors",
+    "workoutDescription" : "A css like selectors used in components and directives present us with many possible options...",
+    "challenges" : [
         {
             "challengeTitle":"Some first challenge",
             "challengeDescription": "challenge 1 description",
