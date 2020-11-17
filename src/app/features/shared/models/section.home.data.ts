@@ -6,4 +6,5 @@ export interface SectionWorkoutData {
 export interface SectionHomeData {
     sectionTitle:string;
     sectionDescription:string;
+    sectionName:string;
 }

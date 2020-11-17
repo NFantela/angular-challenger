@@ -29,7 +29,7 @@ const routes: Routes = [
     component: HomeComponent,
     pathMatch: 'full'
   },
-  { path: environment.navRoutes.components, 
+  { path: environment.navRoutes.components.sectionName, 
     loadChildren: () => import('./features/components-directives/components-directives.module').then(m => m.ComponentsAndDirectivesModule) 
   },
   // { path: environment.navRoutes.multiSettings, 
