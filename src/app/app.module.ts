@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Sanitizer } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { Routes, RouterModule } from '@angular/router';
@@ -19,6 +19,9 @@ import {MatListModule} from '@angular/material/list';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MapDataPipe } from './pipes/mapper/mapper.pipe';
+import { NgDompurifyModule } from './global-shared/ng-dom-purify/ng-dompurify.module';
+import { NgDompurifySanitizer } from './global-shared/ng-dom-purify/ng-dompurify.service';
+import { DOMPURIFY_CONFIG } from './global-shared/ng-dom-purify/tokens/dompurify-config';
 
 const routes: Routes = [
   {
@@ -59,9 +62,22 @@ const routes: Routes = [
     MatButtonModule,
     MatExpansionModule,
     MatListModule,
+    NgDompurifyModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [
+    /** Replacing default Sanitizer with our custom one and providing config
+     * https://github.com/TinkoffCreditSystems/ng-dompurify
+     */
+    {
+      provide: Sanitizer,
+      useClass: NgDompurifySanitizer,
+    },
+    {
+      provide: DOMPURIFY_CONFIG,
+      useValue: { FORBID_ATTR: ['id'] },
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

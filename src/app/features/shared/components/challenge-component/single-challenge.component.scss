@@ -1,0 +1,12 @@
+$iframeHeight : 50vh;
+
+.single-challenge{
+    .iframe-wrap{
+        width: 100%;
+        height: $iframeHeight;
+        iframe {
+            width: 100%;
+            height: $iframeHeight;
+        }
+    }
+}

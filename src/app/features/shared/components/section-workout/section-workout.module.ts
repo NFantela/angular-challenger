@@ -6,7 +6,7 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
 // pipes
-import { ComponentContextPipeModule } from '../../pipes/component-context-pipe.module';
+import { ComponentContextPipeModule } from '../../pipes/component-context/component-context-pipe.module';
 
 
 @NgModule({
